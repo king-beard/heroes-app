@@ -1,13 +1,13 @@
 import { Fragment } from "react"
-import { HeroesList } from "../components"
+import { HeroList } from "../components"
 
 export const MarvelPage = () => {
   return (
     <Fragment>
-      <h1>DCPage</h1>
+      <h1>Marvel</h1>
       <hr />
 
-      <HeroesList publisher="Marvel Comics" />
+      <HeroList publisher="Marvel Comics" />
     </Fragment>
   )
 }
