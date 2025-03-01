@@ -1,5 +1,13 @@
+import { Fragment } from "react"
+import { HeroesList } from "../components"
+
 export const DCPage = () => {
   return (
-    <h1>DCPage</h1>
+    <Fragment>
+      <h1>DCPage</h1>
+      <hr />
+
+      <HeroesList publisher="DC Comics" />
+    </Fragment>
   )
 }

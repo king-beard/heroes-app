@@ -6,7 +6,7 @@ export const Navbar = () => {
   const onLogout = () => navigate('/login')
   
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-light border-bottom p-2">
+    <nav className="navbar navbar-expand-sm navbar-light bg-light border-bottom p-2 mb-2">
 
       <Link
         className="navbar-brand"
