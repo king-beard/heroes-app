@@ -6,15 +6,15 @@ import { Navbar } from "../../ui/components"
 export const HeroesRoutes = () => {
   return (
     <Fragment>
-      <Navbar/>
+      <Navbar />
       <div className="container">
         <Routes>
-          <Route path="/" element={ <Navigate to="/marvel" /> } />
+          <Route path="/" element={<Navigate to="/marvel" />} />
 
-          <Route path="dc" element={ <DCPage /> } />
-          <Route path="marvel" element={ <MarvelPage /> } />
-          <Route path="search" element={ <SearchPage /> } />
-          <Route path="hero/:id" element={ <HeroPage /> } />
+          <Route path="dc" element={<DCPage />} />
+          <Route path="marvel" element={<MarvelPage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route path="hero/:id" element={<HeroPage />} />
         </Routes>
       </div>
     </Fragment>
