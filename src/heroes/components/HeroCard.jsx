@@ -13,7 +13,7 @@ export const HeroCard = ({ hero }) => {
       <div className="card">
         <div className="row no-gutters">
           <div className="col-4">
-            <img className="card-img" src={`/assets/heroes/${id}.jpg`} alt={superhero} />
+            <img className="card-img animate__animated animate__backInDown" src={`/assets/heroes/${id}.jpg`} alt={superhero} />
           </div>
           <div className="col-8">
             <div className="card-body">
