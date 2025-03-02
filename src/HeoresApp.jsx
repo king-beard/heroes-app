@@ -1,10 +1,10 @@
-import { Fragment } from "react"
 import { RouterApp } from "./router/RouterApp"
+import { AuthProvider } from "./auth/context"
 
 export const HeoresApp = () => {
   return (
-    <Fragment>
+    <AuthProvider>
       <RouterApp />
-    </Fragment>
+    </AuthProvider>
   )
 }
