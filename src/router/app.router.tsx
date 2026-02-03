@@ -1,25 +1,40 @@
-import { AdminPage } from "@/admin/pages/AdminPage";
-import { HeroPage } from "@/heores/pages/hero/HeroPage";
-import { HomePage } from "@/heores/pages/home/HomePage";
-import { SearchPage } from "@/heores/pages/search/SearchPage";
 import { createBrowserRouter, Navigate } from "react-router";
+
+import { AdminLayout } from "@/admin/layouts/AdminLayout";
+import { AdminPage } from "@/admin/pages/AdminPage";
+import { HeroesLayout } from "@/heroes/layouts/HeroesLayout";
+import { HeroPage } from "@/heroes/pages/hero/HeroPage";
+import { HomePage } from "@/heroes/pages/home/HomePage";
+import { SearchPage } from "@/heroes/pages/search/SearchPage";
 
 export const AppRouter = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage />
-  },
-  {
-    path: '/heroes/{id}',
-    element: <HeroPage />
-  },
-  {
-    path: '/search',
-    element: <SearchPage />
+    element: <HeroesLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
+      {
+        path: 'heroes/{id}',
+        element: <HeroPage />
+      },
+      {
+        path: 'search',
+        element: <SearchPage />
+      },
+    ]
   },
   {
     path: '/admin',
-    element: <AdminPage />
+    element: <AdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <AdminPage />
+      }
+    ]
   },
   {
     path: '*',
