@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useQuery } from "@tanstack/react-query"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { HeroStats } from "@/heroes/components/HeroStats"
@@ -8,7 +9,6 @@ import { CustomBreadcrumb } from "@/components/custom/CustomBreadcrumb"
 import { CustomJumbotron } from "@/components/custom/CustomJumbotron"
 import { CustomPagination } from "@/components/custom/CustomPagination"
 import { getHeroesByPageAction } from "@/heroes/actions/get-heroes-by-page.action"
-import { useQuery } from "@tanstack/react-query"
 
 type TypeTab = 'all' | 'favorites' | 'heroes' | 'villains';
 
