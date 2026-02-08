@@ -7,12 +7,20 @@ import { HeroGrid } from "@/heroes/components/HeroGrid"
 import { CustomBreadcrumb } from "@/components/custom/CustomBreadcrumb"
 import { CustomJumbotron } from "@/components/custom/CustomJumbotron"
 import { CustomPagination } from "@/components/custom/CustomPagination"
+import { getHeroesByPageAction } from "@/heroes/actions/get-heroes-by-page.action"
+import { useQuery } from "@tanstack/react-query"
 
 type TypeTab = 'all' | 'favorites' | 'heroes' | 'villains';
 
 export const HomePage = () => {
 
   const [activeTab, setActiveTab] = useState<TypeTab>('all')
+
+  const { data } = useQuery({
+    queryKey: ['heroes'],
+    queryFn: () => getHeroesByPageAction(),
+    staleTime: 1000 * 60 * 5
+  });
 
   return (
     <>
