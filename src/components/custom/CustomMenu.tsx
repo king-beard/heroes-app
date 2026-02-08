@@ -1,3 +1,7 @@
+import { Link, useLocation } from "react-router"
+
+import { cn } from "@/lib/utils";
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -5,8 +9,6 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { cn } from "@/lib/utils";
-import { Link, useLocation } from "react-router"
 
 export function CustomMenu() {
   const { pathname } = useLocation();
