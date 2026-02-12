@@ -10,6 +10,7 @@ import { CustomBreadcrumb } from "@/components/custom/CustomBreadcrumb"
 import { CustomJumbotron } from "@/components/custom/CustomJumbotron"
 import { CustomPagination } from "@/components/custom/CustomPagination"
 import { getHeroesByPageAction } from "@/heroes/actions/get-heroes-by-page.action"
+import { getSummaryAction } from "@/heroes/actions/get-summary.action"
 
 export const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -27,6 +28,12 @@ export const HomePage = () => {
     queryKey: ['heroes', { page, limit }],
     queryFn: () => getHeroesByPageAction(+page, +limit),
     staleTime: 1000 * 60 * 5
+  });
+
+  const { data: summary } = useQuery({
+    queryKey: ['summary-information'],
+    queryFn: getSummaryAction,
+    staleTime: 1000 * 60 * 5 // 5 minutes
   });
 
   return (
@@ -53,7 +60,7 @@ export const HomePage = () => {
               return prev;
             })}
           >
-            All Characters (16)
+            All Characters ({summary?.totalHeroes})
           </TabsTrigger>
           <TabsTrigger
             value="favorites"
@@ -72,7 +79,7 @@ export const HomePage = () => {
               return prev;
             })}
           >
-            Heroes (12)
+            Heroes ({summary?.heroCount})
           </TabsTrigger>
           <TabsTrigger
             value="villains"
@@ -81,7 +88,7 @@ export const HomePage = () => {
               return prev;
             })}
           >
-            Villains (2)
+            Villains ({summary?.villainCount})
           </TabsTrigger>
         </TabsList>
         <TabsContent value="all">
