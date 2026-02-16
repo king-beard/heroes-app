@@ -13,11 +13,11 @@ export const FavoriteHeroContext = createContext({} as IFavoriteHeroContext);
 
 const getFavoritesFromLocalStorage = (): Hero[] => {
   const favorites = localStorage.getItem('favorites');
-  return favorites ? JSON.parse('favorites') : [];
+  return favorites ? JSON.parse(favorites) : [];
 }
 
 export const FavoriteHeroProvider = ({ children }: PropsWithChildren) => {
-  const [favorites, setFavorites] = useState<Hero[]>(getFavoritesFromLocalStorage);
+  const [favorites, setFavorites] = useState<Hero[]>(getFavoritesFromLocalStorage());
 
   const isFavorite = (hero: Hero) => favorites.some(h => h.id === hero.id);
 
